@@ -51,6 +51,8 @@ class BitMap:
                 # print(bin_str)
 
             # reviser stirng here???
+            final_str += str((i) * 8)
+            final_str += "  "
             final_str += bin_str[::-1]
             final_str += "\n"
 
