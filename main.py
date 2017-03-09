@@ -13,7 +13,7 @@ def main():
     quit = False
 
     while not quit:
-        response = input("Enter a command, quit to exit").replace('\n', '')
+        response = input("Enter a command (\"put <name> <size>\", \"inodes\", \"del <name>\", \"bitmap\", and \"quit\"): ").replace('\n', '')
         response = response.strip().split()
 
         if len(response) >= 1:
@@ -31,7 +31,7 @@ def main():
                         size = int(response[2])
                         if fat.freeSpace() >= size:
                             set_.add(response[1])
-                            list.add(iNode(response[1], size))
+                            list.add(iNode(response[1], int(size)))
                         else:
                             print("Error with command put 2")
                 else:

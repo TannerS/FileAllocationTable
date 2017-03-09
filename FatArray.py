@@ -1,4 +1,5 @@
-from BitMap import BitMap
+from threading import Thread
+from time import sleep
 
 class FatArray:
 
@@ -64,12 +65,10 @@ class FatArray:
         next = -1
 
         while self.fat_array[curr] != -1:
-            next = self.getNextFreeIndex(curr)
+            next = self.getNextBlockIndex(curr)
             pointers.append(curr)
             curr = next
-
         pointers.append(curr)
-
         return pointers
 
     def getNextBlockIndex(self, index):

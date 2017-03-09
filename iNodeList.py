@@ -38,7 +38,7 @@ class iNodeList:
         str = ""
 
         for i in range(0, len(self.node_list)):
-            node = self.node_list[0]
+            node = self.node_list[i]
             pointers = self.array.getPointers(node.index)
             str += node.toString(pointers) + "\n"
         return str

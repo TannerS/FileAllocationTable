@@ -18,10 +18,10 @@ class iNode:
         return(hash(self.file_name))
 
     def toString(self, pointers):
-        str = ""
-        str += self.file_name + ": " + pointers[0]
+        str_ = ""
+        str_ += (self.file_name + ": " + str(pointers[0]))
 
         for i in range(1, len(pointers)):
-            str += " -> " + pointers[i]
+            str_ += " -> " + str(pointers[i])
 
-        return str
+        return str_
