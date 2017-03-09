@@ -1,5 +1,4 @@
 class BitMap:
-    #btmap = None
 
     def __init__(self):
         self.bitmap = 0

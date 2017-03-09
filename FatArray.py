@@ -40,9 +40,6 @@ class FatArray:
         curr = start
         next = None
 
-        print("START: " + str(start))
-        print("FAT: " + str(self.fat_array))
-
         while self.fat_array[curr] != -1:
             # print("DEBUG =====: " + str(self.fat_array[curr]))
             next = self.getNextBlockIndex(curr)
@@ -52,7 +49,7 @@ class FatArray:
             self.available_blocks += 1
             # print("DEBUG 109876543")
             curr = next
-        print("DEBUG 9")
+
         self.fat_array[curr] = 0
         self.map.removeNode(curr)
         self.available_blocks += 1
