@@ -51,7 +51,7 @@ class BitMap:
                 # print(bin_str)
 
             # reviser stirng here???
-            final_str += bin_str
+            final_str += bin_str[::-1]
             final_str += "\n"
 
            # print(final_str)
