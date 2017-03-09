@@ -30,19 +30,31 @@ class BitMap:
             temp_bitmap >>= 8
             # http://stackoverflow.com/questions/1395356/how-can-i-make-bin30-return-00011110-instead-of-0b11110
             binary_str = bin(bits)[2:].zfill(8)
-            bin_str += binary_str
+            bin_str = binary_str
 
-            if(len(temp_bitmap) != 8):
+            # print("DEBUG: " +  bin_str)
+
+            # if(temp_bitmap != 8):
                 # convert to list to add front 0's
-                temp_bitmap_list = list(temp_bitmap)
+                #temp_bitmap_list = list( bin(temp_bitmap)[2:])
+                # temp_bitmap_list = list( bin(temp_bitmap))
+
+                # print(temp_bitmap)
+
                 # http://stackoverflow.com/questions/869885/loop-backwards-using-indices-in-python
-                for i in range(8,-1,-1):
-                    temp_bitmap_list.insert(0, "0")
-                bin_str = ""
-                bin_str.join(temp_bitmap_list)
+                # for i in range(8,-1,-1):
+                #     temp_bitmap_list.insert(0, "0")
+                    # print(temp_bitmap, end="")
+
+                # bin_str.join(temp_bitmap_list)
+                # bin_str.join("\n")
+
+                # print(bin_str)
 
             # reviser stirng here???
             final_str += bin_str
             final_str += "\n"
+
+           # print(final_str)
 
         return final_str

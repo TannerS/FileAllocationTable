@@ -8,7 +8,14 @@ class iNodeList:
         self.count = 0
 
     def add(self, node):
+        print("NODELISTADD: "+ str(node.file_name))
+
+
         self.node_list.append(node)
+
+        print("NODELISTADD: "+ str(self.node_list))
+
+
         self.allocate(node)
         self.count += 1
 
@@ -18,14 +25,48 @@ class iNodeList:
         node.setIndex(pointers[0])
 
     def find(self, node):
-        return self.node_list.index(node)
+        print("DEBUG 1!!!!!!!")
+        for i in range(0, len(self.node_list)):
+            print("NODELISTFIND: " + str(self.node_list[i].file_name))
+            print("NODELISTFIND@: " + str(node.file_name))
+            print("NODELISTFIND2: " + str(self.node_list[i].size))
+            print("NODELISTFIND2@: " + str(node.size))
 
-    def remove(self, str):
-        node = self.find(iNode(str, -1))
-        node_obj = self.node_list[node]
-        starting_index = node_obj.index
+            print("NODELISTFIND3: " + str(self.node_list[i].index))
+            print("NODELISTFIND3@: " + str(node.index))
+            print("DEBUG 2")
+            if node.file_name == self.node_list[i].file_name:
+                print("DEBUG 22%^&*(*&^%&*():::::" + str(i))
+                return i
+                # if node.size == self.node_list[i].size:
+                #     print("DEBUG 222")
+                #     if node.index == self.node_list[i].index:
+                #         print("DEBUG 2222")
+                #         return i
+        return -1
+
+    def remove(self, str_):
+        print("DEBUG 3")
+        index = self.find(iNode(str_, -1))
+        print("DEBUG 4")
+
+        node_obj = self.node_list[index]
+        print("DEBUG 5")
+
+        starting_index = int(node_obj.index)
+        print("DEBUG 6: " + str(starting_index))
+
         self.array.removeBlocks(starting_index)
-        self.node_list.remove(node)
+        print("DEBUG 7")
+        print("INDEX: " + str(index))
+
+        print("!@@@@@@@@@@@@@@@@: " + str(self.node_list))
+
+        # self.node_list.remove(index)
+        del self.node_list[index]
+
+        print("DEBUG 8")
+
         self.count -= 1
 
     def toString(self):

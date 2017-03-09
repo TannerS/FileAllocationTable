@@ -11,6 +11,7 @@ class FatArray:
     def getNextFreeIndex(self, start):
         for i in range(start, 64):
             if self.fat_array[i] == 0:
+                # print("I: " + str(i))
                 return i
         return -1
 
@@ -39,11 +40,19 @@ class FatArray:
         curr = start
         next = None
 
+        print("START: " + str(start))
+        print("FAT: " + str(self.fat_array))
+
         while self.fat_array[curr] != -1:
-            next =self.getNextFreeIndex(curr)
+            # print("DEBUG =====: " + str(self.fat_array[curr]))
+            next = self.getNextBlockIndex(curr)
+            # print("DEBUG 100000")
             self.removeBlock(curr)
+            # print("DEBUG 234567890")
             self.available_blocks += 1
+            # print("DEBUG 109876543")
             curr = next
+        print("DEBUG 9")
         self.fat_array[curr] = 0
         self.map.removeNode(curr)
         self.available_blocks += 1
